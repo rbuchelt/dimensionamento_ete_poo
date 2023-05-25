@@ -75,3 +75,28 @@ class Desarenador:
         L2 = 25 * b
 
         return b, L1, L2
+
+class TanqueEqualizacao:
+    def __init__(self, V1, V2):
+        """
+        :param V1: Menor volume diário no tanque
+        :param V2: Maior volume diário no tanque
+        """
+        self.V1 = V1
+        self.V2 = V2
+
+    def calculo_volume_equalizacao(self):
+        """
+        O calculo do volume do tanque de equalização é obtido por V1 e V2 onde a diferença entre os dois é o volume
+        do tanque.
+
+        Os valores de V1 e V2 é obtido pelas maiores diferenças de entrada e saídas acumuladas durante as 24 horas do
+        dia.
+
+        O cálculo ainda considera uma margem de segurança de 25%, portanto multiplica-se o volume obtido por 1.25.
+        """
+
+        Veq = (self.V2 - self.V1) * 1.25
+
+        return Veq
+
