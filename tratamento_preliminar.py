@@ -45,14 +45,30 @@ class SecaoTransversalGradeamento:
 
 class Desarenador:
     def __init__(self, Q, h):
+        """
+        :param Q: Vazão do projeto
+        :param h: Altura da calha do desarenador
+        """
         self.Q = Q
         self.h = h
 
     def calculo_desarenador(self):
 
+        """
+        O cálculo do desarenador retorna tanto a largura quando o comprimento do desarenador
+
+        O comprimento da caixa de areia (L) é determinado considerando-se a velocidade dos efluentes de 0,3 m/s e a
+        velocidade de sedimentação de 2cm/s.
+
+        Recimenda-se L = 22.5*H ou 25*H
+
+        O código retorna os dois parâmetros recomendados para L e o valor a ser utilizado deve ser escolhido pelo
+        projetista
+        """
+
         Q = self.Q / 1000
 
-        b = self.Q / (0.3*self.h)
+        b = Q / (0.3*self.h)
 
         L1 = 22.5 * b
 
